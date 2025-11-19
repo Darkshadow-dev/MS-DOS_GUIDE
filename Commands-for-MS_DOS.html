@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MS-DOS – Other Uses</title>
+<link rel="icon" type="image/png" href="Website-Guide.png" />
+
+<style>
+:root {
+  --bg: #1e1e1e;
+  --panel: #000;
+  --accent: #00ff00;
+  --text: #c7c7c7;
+  --max-width: 1000px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Courier New", monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--panel);
+  padding: 12px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* NAVBAR */
+nav {
+  margin-top: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+nav::-webkit-scrollbar { display: none; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  background: rgba(0,255,0,0.1);
+}
+
+/* DISABLE DROPDOWNS */
+.dropdown { display: none !important; }
+
+/* RESPONSIVE */
+@media (min-width: 769px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    display: block;
+  }
+}
+
+/* MAIN CONTENT */
+main {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 140px 20px 80px;
+}
+
+main h2 {
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+main h3 {
+  color: var(--accent);
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+main p, main li {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+main ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--panel);
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+}
+    /* Hide default scrollbar */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+nav::-webkit-scrollbar { display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="logo">MS-DOS Guide</div>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="MS-DOS_main.html">Home</a></li>
+      <li><a href="A-Z_Commands.html">A-Z Commands</a></li>
+      <li><a href="Commands-for-MS_DOS.html">Other commands</a></li>
+      <li><a href="MS-DOS_Simulator.html">Simulator</a></li>
+      <li><a href="Tips-MS-DOS.html">Tips</a></li>
+      <li><a href="Setup-MS-DOS.html">Setup</a></li>
+      <li><a href="Troubleshooting-MS-DOS.html">Troubleshooting</a></li>
+      <li><a href="History-MS-DOS.html">History</a></li>
+      <li><a href="About-Ms-DOS.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>Other Uses for MS-DOS Commands</h2>
+  <p>
+    This section covers advanced and utility-focused uses of MS-DOS commands:
+    installation, upgrading, updating, disk checking, debugging, repairing, and
+    maintaining your system.
+  </p>
+
+  <h3>Installation & Upgrading Commands</h3>
+  <ul>
+    <li><strong>SYS</strong> – Install MS-DOS system files to a disk.</li>
+    <li><strong>FORMAT</strong> – Prepare (and wipe) disks for installation.</li>
+    <li><strong>DISKCOPY</strong> – Clone full disks for installation sets.</li>
+    <li><strong>XCOPY</strong> – Transfer large directories when upgrading systems.</li>
+  </ul>
+
+  <h3>Updating Tools</h3>
+  <ul>
+    <li><strong>REPLACE</strong> – Update files only if the source is newer.</li>
+    <li><strong>COPY /V</strong> – Verify file integrity while copying updates.</li>
+    <li><strong>ATTRIB</strong> – Remove protection for updating locked files.</li>
+  </ul>
+
+  <h3>Disk Checking & Repair</h3>
+  <ul>
+    <li><strong>CHKDSK</strong> – Scan disks for errors and display status.</li>
+    <li><strong>SCANDISK</strong> (later versions) – Fix corrupted clusters.</li>
+    <li><strong>FDISK</strong> – Inspect and rebuild partitions.</li>
+    <li><strong>DEFRAG</strong> – Improve file layout and system performance.</li>
+  </ul>
+
+  <h3>Debugging & Diagnostics</h3>
+  <ul>
+    <li><strong>DEBUG</strong> – Low-level memory reading and editing.</li>
+    <li><strong>MEM</strong> – View detailed memory usage.</li>
+    <li><strong>VER</strong> – Check your MS-DOS version.</li>
+    <li><strong>MODE</strong> – Test devices and set system configurations.</li>
+  </ul>
+
+  <h3>Maintenance & Cleanup</h3>
+  <ul>
+    <li><strong>DEL /F</strong> – Force delete corrupted or locked files.</li>
+    <li><strong>TREE</strong> – Analyze folder structures.</li>
+    <li><strong>DISKCOMP</strong> – Compare two disks for data integrity.</li>
+    <li><strong>BACKUP / RESTORE</strong> – Save your system and recover it.</li>
+  </ul>
+
+  <p>These commands extend MS-DOS beyond simple file navigation and let you maintain, repair, and tune the system like a technician.</p>
+</main>
+
+<footer>
+  <p>Ⓖ 2025 MS-DOS Guide. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

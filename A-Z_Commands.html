@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MS-DOS Commands A-Z</title>
+<link rel="icon" type="image/png" href="Website-Guide.png">
+
+
+<style>
+:root {
+  --bg: #1e1e1e;
+  --panel: #000;
+  --accent: #00ff00;
+  --text: #c7c7c7;
+  --max-width: 1000px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Courier New", monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--panel);
+  padding: 12px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* NAVBAR - 1 LINE ALWAYS VISIBLE */
+nav {
+  margin-top: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+nav::-webkit-scrollbar { display: none; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  background: rgba(0,255,0,0.1);
+}
+
+/* REMOVE DROPDOWNS COMPLETELY */
+.dropdown { display: none !important; }
+
+/* RESPONSIVE */
+@media (min-width: 769px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    display: block;
+  }
+}
+
+/* MAIN PAGE CONTENT */
+h1 {
+  color: var(--accent);
+  text-align: center;
+  margin-top: 140px;
+  margin-bottom: 20px;
+}
+
+.commands-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px;
+}
+
+.command-section {
+  background: var(--panel);
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  padding: 15px;
+  width: 300px;
+}
+
+.command-section h2 {
+  color: var(--accent);
+}
+
+.command-section ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.command-section li {
+  padding: 4px 0;
+  color: var(--text);
+}
+
+.command-section li:hover {
+  color: var(--accent);
+}
+
+/* FOOTER */
+footer {
+  background: var(--panel);
+  color: var(--text);
+  text-align: center;
+  padding: 12px;
+  margin-top: 40px;
+}
+    /* Hide default scrollbar */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+.commands-container li {
+  position: relative;
+  cursor: default;
+  list-style: none;
+  padding: 4px 6px;
+  font-family: monospace;
+  color: var(--accent); /* green */
+  user-select: none;
+}
+
+.commands-container li:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  color: #0f0;
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 14px;
+  box-shadow: 0 0 8px #0f0aa;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  max-width: 320px;
+}
+
+.commands-container li::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="logo">MS-DOS Guide</div>
+  </div>
+
+  <!-- Always-visible navbar — no dropdowns -->
+  <nav>
+    <ul>
+      <li><a href="MS-DOS_main.html">Home</a></li>
+      <li><a href="A-Z_Commands.html">A-Z Commands</a></li>
+      <li><a href="Commands-for-MS_DOS.html">Other commands</a></li>
+      <li><a href="MS-DOS_Simulator.html">Simulator</a></li>
+      <li><a href="Tips-MS-DOS.html">Tips</a></li>
+      <li><a href="Setup-MS-DOS.html">Setup</a></li>
+      <li><a href="Troubleshooting-MS-DOS.html">Troubleshooting</a></li>
+      <li><a href="History-MS-DOS.html">History</a></li>
+      <li><a href="About-Ms-DOS.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h1>MS-DOS Commands A-Z</h1>
+<div class="commands-container">
+
+  <div class="command-section">
+    <h2>A</h2>
+    <ul>
+      <li data-tooltip="APPEND [drive1:][path1] filename">APPEND</li>
+      <li data-tooltip="ASSIGN [drive1=drive2]">ASSIGN</li>
+      <li data-tooltip="ATTRIB [+R|-R] [+A|-A] [+S|-S] [+H|-H] [filename]">ATTRIB</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>B</h2>
+    <ul>
+      <li data-tooltip="BREAK [ON | OFF]">BREAK</li>
+      <li data-tooltip="BOOTCFG /[COMMANDS]">BOOTCFG</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>C</h2>
+    <ul>
+      <li data-tooltip="CALL [batchfile] [arguments]">CALL</li>
+      <li data-tooltip="CD [directory]">CD</li>
+      <li data-tooltip="CHKDSK [volume]">CHKDSK</li>
+      <li data-tooltip="CLS">CLS</li>
+      <li data-tooltip="COLOR [attr]">COLOR</li>
+      <li data-tooltip="COMP [file1] [file2]">COMP</li>
+      <li data-tooltip="CONVERT [volume] /FS:NTFS">CONVERT</li>
+      <li data-tooltip="COPY source destination">COPY</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>D</h2>
+    <ul>
+      <li data-tooltip="DATE [mm-dd-yy]">DATE</li>
+      <li data-tooltip="DEL filename">DEL</li>
+      <li data-tooltip="DIR [path]">DIR</li>
+      <li data-tooltip="DISKPART">DISKPART</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>E</h2>
+    <ul>
+      <li data-tooltip="ECHO [ON | OFF | message]">ECHO</li>
+      <li data-tooltip="EDIT filename">EDIT</li>
+      <li data-tooltip="EXIT">EXIT</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>F</h2>
+    <ul>
+      <li data-tooltip="FC file1 file2">FC</li>
+      <li data-tooltip="FIND \"string\" filename">FIND</li>
+      <li data-tooltip="FORMAT [drive:]">FORMAT</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>G</h2>
+    <ul>
+      <li data-tooltip="GOTO label">GOTO</li>
+      <li data-tooltip="GPRESULT [options]">GPRESULT</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>H</h2>
+    <ul>
+      <li data-tooltip="HELP [command]">HELP</li>
+      <li data-tooltip="HOSTNAME">HOSTNAME</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>I</h2>
+    <ul>
+      <li data-tooltip="IF condition command">IF</li>
+      <li data-tooltip="IPCONFIG [options]">IPCONFIG</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>K</h2>
+    <ul>
+      <li data-tooltip="KEYB [layout]">KEYB</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>L</h2>
+    <ul>
+      <li data-tooltip="LABEL [drive:] [label]">LABEL</li>
+      <li data-tooltip="LIST">LIST</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>M</h2>
+    <ul>
+      <li data-tooltip="MODE [device] [parameters]">MODE</li>
+      <li data-tooltip="MORE [filename]">MORE</li>
+      <li data-tooltip="MOVE source destination">MOVE</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>N</h2>
+    <ul>
+      <li data-tooltip="NET [commands]">NET</li>
+      <li data-tooltip="NETSTAT">NETSTAT</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>P</h2>
+    <ul>
+      <li data-tooltip="PATH [path]">PATH</li>
+      <li data-tooltip="PAUSE">PAUSE</li>
+      <li data-tooltip="PING [address]">PING</li>
+      <li data-tooltip="PRINT [filename]">PRINT</li>
+      <li data-tooltip="PROMPT [text]">PROMPT</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>R</h2>
+    <ul>
+      <li data-tooltip="RD [directory]">RD</li>
+      <li data-tooltip="REN oldname newname">REN</li>
+      <li data-tooltip="REPLACE source destination">REPLACE</li>
+      <li data-tooltip="ROBOCOPY source destination [options]">ROBOCOPY</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>S</h2>
+    <ul>
+      <li data-tooltip="SET [variable=[string]]">SET</li>
+      <li data-tooltip="SHUTDOWN [options]">SHUTDOWN</li>
+      <li data-tooltip="START [program]">START</li>
+      <li data-tooltip="SUBST [drive1: drive2:]">SUBST</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>T</h2>
+    <ul>
+      <li data-tooltip="TIME [HH:MM[:SS[.xx]]]">TIME</li>
+      <li data-tooltip="TITLE [string]">TITLE</li>
+      <li data-tooltip="TYPE filename">TYPE</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>U</h2>
+    <ul>
+      <li data-tooltip="UNSET variable">UNSET</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>V</h2>
+    <ul>
+      <li data-tooltip="VER">VER</li>
+      <li data-tooltip="VERIFY [ON | OFF]">VERIFY</li>
+      <li data-tooltip="VOL [drive:]">VOL</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>W</h2>
+    <ul>
+      <li data-tooltip="WHERE [filename]">WHERE</li>
+      <li data-tooltip="WHOAMI">WHOAMI</li>
+    </ul>
+  </div>
+
+  <div class="command-section">
+    <h2>X</h2>
+    <ul>
+      <li data-tooltip="XCOPY source destination [options]">XCOPY</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>Ⓖ 2025 MS-DOS Guide. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

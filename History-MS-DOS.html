@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>History of MS-DOS</title>
+<link rel="icon" type="image/png" href="Website-Guide.png" />
+
+<style>
+:root {
+  --bg: #1e1e1e;
+  --panel: #000;
+  --accent: #00ff00;
+  --text: #c7c7c7;
+  --max-width: 1000px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Courier New", monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--panel);
+  padding: 12px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* NAVBAR - 1 LINE ALWAYS VISIBLE */
+nav {
+  margin-top: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+nav::-webkit-scrollbar { display: none; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: 0.2s;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+nav a:hover {
+  background: rgba(0,255,0,0.1);
+}
+
+/* REMOVE DROPDOWNS COMPLETELY */
+.dropdown { display: none !important; }
+
+/* RESPONSIVE */
+@media (min-width: 769px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    display: block;
+  }
+}
+
+/* MAIN */
+main {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 140px 20px 80px;
+}
+
+main h2, main h3 {
+  color: var(--accent);
+}
+
+main p, main ul {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+main ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+main ul li {
+  margin: 10px 0;
+}
+
+/* FOOTER */
+footer {
+  background: var(--panel);
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+}
+
+/* Hide scrollbar globally */
+::-webkit-scrollbar { display: none; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="logo">MS-DOS Guide</div>
+  </div>
+
+  <!-- NAV matches first page exactly -->
+  <nav>
+    <ul>
+      <li><a href="MS-DOS_main.html">Home</a></li>
+      <li><a href="A-Z_Commands.html">A-Z Commands</a></li>
+      <li><a href="Commands-for-MS_DOS.html">Other commands</a></li>
+      <li><a href="MS-DOS_Simulator.html">Simulator</a></li>
+      <li><a href="Tips-MS-DOS.html">Tips</a></li>
+      <li><a href="Setup-MS-DOS.html">Setup</a></li>
+      <li><a href="Troubleshooting-MS-DOS.html">Troubleshooting</a></li>
+      <li><a href="History-MS-DOS.html">History</a></li>
+      <li><a href="About-Ms-DOS.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="history">
+    <h2>The History of MS-DOS</h2>
+    <p>MS-DOS (Microsoft Disk Operating System) was a groundbreaking operating system developed for IBM-compatible personal computers. Here’s a detailed look at its history:</p>
+
+    <h3>Origins and Development</h3>
+    <ul>
+      <li><strong>When:</strong> First released in August 1981.</li>
+      <li><strong>Who:</strong> Developed by Microsoft, led by Bill Gates and Paul Allen.</li>
+      <li><strong>How:</strong> Based on QDOS (Quick and Dirty Operating System), which Microsoft purchased and modified.</li>
+      <li><strong>Why:</strong> Built for IBM’s first personal computer.</li>
+    </ul>
+
+    <h3>Timeline of Commands and Features</h3>
+    <ul>
+      <li><strong>1981:</strong> Basic commands like <code>dir</code>, <code>copy</code>, <code>del</code>.</li>
+      <li><strong>1983:</strong> MS-DOS 2.0 added directories, <code>mkdir</code>, <code>cd</code>.</li>
+      <li><strong>1986:</strong> MS-DOS 3.2 added networking and <code>net</code>.</li>
+      <li><strong>1991:</strong> MS-DOS 5.0 added the <code>edit</code> text editor.</li>
+      <li><strong>1993:</strong> MS-DOS 6.22 added <code>scandisk</code> and disk compression tools.</li>
+    </ul>
+
+    <h3>Legacy and Importance</h3>
+    <p>MS-DOS became the foundation for early versions of Microsoft Windows and remained widely used throughout the 1980s and 1990s. Its simplicity and flexibility helped shape modern computing.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Ⓖ 2025 MS-DOS Guide. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

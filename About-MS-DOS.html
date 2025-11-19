@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About MS-DOS</title>
+<link rel="icon" type="image/png" href="Website-Guide.png" />
+
+<style>
+:root {
+  --bg: #1e1e1e;
+  --panel: #000;
+  --accent: #00ff00;
+  --text: #c7c7c7;
+  --max-width: 1000px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--panel);
+  padding: 12px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* NAVIGATION */
+nav {
+  margin-top: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: 0.2s;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+nav a:hover {
+  background: rgba(0, 255, 0, 0.1);
+}
+
+/* MAIN CONTENT */
+main {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 140px 20px 80px;
+}
+
+main h2 {
+  color: var(--accent);
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+main p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--panel);
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+  margin-top: auto;
+}
+
+/* Hide scrollbar globally */
+::-webkit-scrollbar {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">MS-DOS Guide</div>
+
+  <nav>
+    <ul>
+      <li><a href="MS-DOS_main.html">Home</a></li>
+      <li><a href="A-Z_Commands.html">A-Z Commands</a></li>
+      <li><a href="Commands-for-MS_DOS.html">Other commands</a></li>
+      <li><a href="MS-DOS_Simulator.html">Simulator</a></li>
+      <li><a href="Tips-MS-DOS.html">Tips</a></li>
+      <li><a href="Setup-MS-DOS.html">Setup</a></li>
+      <li><a href="Troubleshooting-MS-DOS.html">Troubleshooting</a></li>
+      <li><a href="History-MS-DOS.html">History</a></li>
+      <li><a href="About-Ms-DOS.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="about">
+    <h2>About MS-DOS</h2>
+    <p>MS-DOS, short for Microsoft Disk Operating System, is an operating system for x86-based personal computers.</p>
+    <p>Developed by Microsoft, it was first introduced in 1981 and became the standard operating system for IBM-compatible PCs.</p>
+    <p>MS-DOS is a command-line operating system that provides users with direct control over their computer by typing commands.</p>
+    <p>This allows for precise management of files, programs, and system settings, making it a powerful tool for advanced users.</p>
+    <p>While MS-DOS has been largely replaced by graphical user interfaces (GUIs) in modern operating systems, its simplicity and efficiency still make it a favorite among enthusiasts and professionals in certain fields.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Ⓖ 2025 MS-DOS Guide. All rights reserved.</p>
+</footer>
+</body>
+</html>

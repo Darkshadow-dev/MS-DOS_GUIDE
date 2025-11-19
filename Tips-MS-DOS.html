@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MS-DOS Tips</title>
+<link rel="icon" type="image/png" href="Website-Guide.png" />
+
+<style>
+:root {
+  --bg: #1e1e1e;
+  --panel: #000;
+  --accent: #00ff00;
+  --text: #c7c7c7;
+  --max-width: 1000px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Courier New", monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--panel);
+  padding: 12px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* NAVBAR - 1 LINE ALWAYS VISIBLE */
+nav {
+  margin-top: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+nav::-webkit-scrollbar { display: none; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: 0.2s;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+nav a:hover {
+  background: rgba(0,255,0,0.1);
+}
+
+/* REMOVE DROPDOWNS COMPLETELY */
+.dropdown { display: none !important; }
+
+/* RESPONSIVE */
+@media (min-width: 769px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    display: block;
+  }
+}
+
+/* MAIN */
+main {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 140px 20px 80px;
+}
+
+main h2 {
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+main h3 {
+  color: var(--accent);
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+main p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-left: 20px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--panel);
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+  margin-top: auto;
+}
+
+/* Hide scrollbar globally */
+::-webkit-scrollbar { display: none; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="logo">MS-DOS Guide</div>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="MS-DOS_main.html">Home</a></li>
+      <li><a href="A-Z_Commands.html">A-Z Commands</a></li>
+      <li><a href="Commands-for-MS_DOS.html">Other commands</a></li>
+      <li><a href="MS-DOS_Simulator.html">Simulator</a></li>
+      <li><a href="Tips-MS-DOS.html">Tips</a></li>
+      <li><a href="Setup-MS-DOS.html">Setup</a></li>
+      <li><a href="Troubleshooting-MS-DOS.html">Troubleshooting</a></li>
+      <li><a href="History-MS-DOS.html">History</a></li>
+      <li><a href="About-Ms-DOS.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="tips">
+    <h2>MS-DOS Tips</h2>
+
+    <h3>Basic Navigation</h3>
+    <p><b>Switching Directories:</b> Use the <code>cd</code> command followed by the folder name to switch directories. Example: <code>cd Documents</code>.</p>
+    <p><b>Listing Files:</b> Use the <code>dir</code> command to list all files and directories in the current directory.</p>
+    <p><b>Going Back a Directory:</b> Use <code>cd..</code> to move back to the parent directory.</p>
+
+    <h3>File Management</h3>
+    <p><b>Creating a File:</b> Use the <code>copy con</code> command followed by the filename to create a file. Press <code>Ctrl+Z</code> and <code>Enter</code> to save. Example: <code>copy con example.txt</code>.</p>
+    <p><b>Renaming Files:</b> Use the <code>rename</code> (or <code>ren</code>) command to rename a file. Example: <code>ren oldfile.txt newfile.txt</code>.</p>
+    <p><b>Deleting Files:</b> Use the <code>del</code> command to delete a file. Example: <code>del example.txt</code>.</p>
+
+    <h3>System Tips</h3>
+    <p><b>Checking Disk Space:</b> Use the <code>chkdsk</code> command to analyze disk usage and health.</p>
+    <p><b>Viewing System Information:</b> Use the <code>ver</code> command to display the current MS-DOS version.</p>
+    <p><b>Clearing the Screen:</b> Use the <code>cls</code> command to clear the command prompt screen for better readability.</p>
+
+    <h3>Power Commands</h3>
+    <p><b>Redirecting Output to a File:</b> Use the <code>></code> operator to save command output to a file. Example: <code>dir > output.txt</code>.</p>
+    <p><b>Piping Commands:</b> Combine commands with the <code>|</code> operator. Example: <code>dir | more</code> shows the directory list page by page.</p>
+    <p><b>Batch File Tips:</b> Automate tasks by creating a <code>.bat</code> file with your commands listed line by line.</p>
+
+    <h3>Troubleshooting</h3>
+    <p><b>Checking Connectivity:</b> Use the <code>ping</code> command to test network connectivity (if available).</p>
+    <p><b>Recovering Deleted Files:</b> Use <code>undelete</code> (if enabled) to attempt file recovery.</p>
+    <p><b>Terminating Processes:</b> Use the <code>Ctrl+C</code> keyboard shortcut to terminate a running process or command.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Ⓖ 2025 MS-DOS Guide. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
