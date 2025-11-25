@@ -137,7 +137,7 @@ main p {
   min-width: 140px;
   user-select: none;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 20px;
 }
 .cmdline {
   flex: 1;
@@ -462,21 +462,34 @@ const COMMANDS = {
     });
   },
 
-  cd(args) {
-    if (!args[0]) {
-      appendLine(FS.cwd.join("").replace(/\\$/, "\\") + ">");
-      return;
+
+cd(args) {
+
+  // --- Handle "cd.." and "cd .." ---
+  if (!args[0] || args[0].toLowerCase() === ".." || args[0].toLowerCase() === "cd.." || args[0].toLowerCase() === "cd ..") {
+    if (FS.cwd.length > 1) {
+      FS.cwd.pop(); // move up one directory
+      updatePrompt();
+      saveFS(FS);
+    } else {
+      appendLine("Already at root directory.");
     }
-    const target = normalizePath(args[0]);
-    const node = pathToNode(target);
-    if (!node || node.type !== "dir") {
-      appendLine("The system cannot find the path specified.");
-      return;
-    }
-    FS.cwd = target;
-    updatePrompt();
-    saveFS(FS);
-  },
+    return;
+  }
+
+  // --- Normal CD path handling ---
+  const target = normalizePath(args[0]);
+  const node = pathToNode(target);
+  if (!node || node.type !== "dir") {
+    appendLine("The system cannot find the path specified.");
+    return;
+  }
+
+  FS.cwd = target;
+  updatePrompt();
+  saveFS(FS);
+},
+
 
   mkdir(args) {
     if (!args[0]) {
