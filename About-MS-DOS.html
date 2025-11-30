@@ -50,7 +50,7 @@ header {
   white-space: nowrap;
 }
 
-/* NAVIGATION */
+/* NAVBAR - 1 LINE ALWAYS VISIBLE */
 nav {
   margin-top: 10px;
   overflow-x: auto;
@@ -58,15 +58,12 @@ nav {
   -webkit-overflow-scrolling: touch;
 }
 
-nav::-webkit-scrollbar {
-  display: none;
-}
+nav::-webkit-scrollbar { display: none; }
 
 nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
-  justify-content: center;
 }
 
 nav a {
@@ -76,12 +73,14 @@ nav a {
   border-radius: 4px;
   transition: 0.2s;
   white-space: nowrap;
-  font-size: 16px;
 }
 
 nav a:hover {
-  background: rgba(0, 255, 0, 0.1);
+  background: rgba(0,255,0,0.1);
 }
+
+/* REMOVE DROPDOWNS COMPLETELY */
+.dropdown { display: none !important; }
 
 /* MAIN CONTENT */
 main {
