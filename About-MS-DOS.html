@@ -15,11 +15,7 @@
   --max-width: 1000px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: "Courier New", monospace;
@@ -38,8 +34,11 @@ header {
   padding: 12px 20px;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.header-top {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -49,6 +48,7 @@ header {
   color: var(--accent);
   white-space: nowrap;
 }
+
 
 /* NAVBAR - 1 LINE ALWAYS VISIBLE */
 nav {
