@@ -176,6 +176,41 @@ nav::-webkit-scrollbar {
   cursor: pointer;
   align-self: flex-start;
 }
+#landscape-warning {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.warning-box {
+  background: #222;
+  border: 2px solid #555;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 350px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.warning-box button {
+  margin: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#ok-btn { background: #4caf50; color: white; }
+#why-btn { background: #555; color: white; }
+
 </style>
 </head>
 <body>
@@ -195,6 +230,16 @@ nav::-webkit-scrollbar {
     </ul>
   </nav>
 </header>
+<div id="landscape-warning" style="display:none;">
+  <div class="warning-box">
+    <h3>Landscape Mode Needed</h3>
+    <p id="warning-text">This works best in landscape mode. Turn your phone over!</p>
+    <p id="warning-text">Note: Navigation bar brakes in landscape mode go to potrait mode to use it</p>
+
+    <button id="ok-btn">OK</button>
+    <button id="why-btn">Why?</button>
+  </div>
+</div>
 
 <main>
   <h2>Interactive MS-DOS Simulator</h2>
@@ -725,5 +770,41 @@ updatePrompt();
 input.focus();
 
 </script>
+<script>
+function isMobile() {
+  return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+}
+
+function checkOrientation() {
+  if (!isMobile()) return; // ignore on PC
+
+  const warning = document.getElementById("landscape-warning");
+
+  if (window.innerWidth < window.innerHeight) {
+    // Portrait mode
+    warning.style.display = "flex";
+    document.getElementById("warning-text").innerText =
+      "This only works in landscape mode. Turn your phone over.";
+  } else {
+    // Landscape mode
+    warning.style.display = "none";
+  }
+}
+
+// Buttons
+document.getElementById("ok-btn").onclick = () => {
+  document.getElementById("landscape-warning").style.display = "none";
+};
+
+document.getElementById("why-btn").onclick = () => {
+  document.getElementById("warning-text").innerText =
+    "The simulator was made for pc but needs landscape mode to work correctly!";
+};
+
+// Check on load and when rotating
+window.addEventListener("load", checkOrientation);
+window.addEventListener("resize", checkOrientation);
+</script>
+
 </body>
 </html>
